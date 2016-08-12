@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Bee Solution Partners</title>
+		{% include "layout/head.html" %}
+	</head>
+	<body>
+        <!-- HEADER : begin -->
+        <header id="header" class="m-large m-enable-fixed m-fixed-bg">
+            <div class="header-inner">
+                <div class="container">
+
+                <!-- HEADER CONTENT : begin -->
+                <div class="header-content">
+
+                    <!-- HEADER BRANDING : begin -->
+                    <div class="header-branding">
+                        <div class="header-branding-inner">
+                            <a href="/"><img src="/static/vendor/images/logo-large.png" width="230" height="230" alt="Vibes" data-hires="/static/vendor/images/logo-large.2x.png" data-fixed="/static/vendor/images/logo.png" data-fixed-hires="/static/vendor/images/logo.2x.png" data-fixed-width="52" data-fixed-height="52"></a>
+                        </div>
+                    </div>
+                    <!-- HEADER BRANDING : end -->
+
+                    <!-- HEADER MENU : begin -->
+                    <nav class="header-menu">
+                        <ul>
+                            <li>
+                                <a href="/">Home</a>
+                            </li>
+                            <li class="m-active">
+                                <a href="/posts/">Post</a>
+                            </li>
+                            <li>
+                                <a href="/">News</a>
+                            </li>
+                            <li>
+                                <a href="/">Products</a>
+                            </li>
+                            <li>
+                                <a href="/">Company Info</a>
+                            </li>
+                            <li>
+                                <a href="/">Tips & Stories</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- HEADER MENU : end -->
+                </div>
+                <!-- HEADER CONTENT : end -->
+
+                <!-- MAIN SIDEBAR TOGGLE : begin -->
+                <button class="main-sidebar-toggle" type="button"><i class="fa fa-bars"></i></button>
+                <!-- MAIN SIDEBAR TOGGLE : end -->
+                </div>
+            </div>
+        </header>
+        <!-- HEADER : end -->
+
+        <!-- BODY : begin -->
+        <div id="body">
+
+            <!-- WRAPPER : begin -->
+            <div id="wrapper">
+
+                <!-- CORE : begin -->
+                <div id="core" class="m-has-sidebar">
+                    <!-- PAGE HEADER : begin -->
+                    <div id="page-header">
+                        <div class="container">
+                            <h1>Blog</h1>
+                            <ul class="breadcrumbs">
+                                <li><a href="/">Home</a></li>
+                                <li>Blog</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- PAGE HEADER : end -->
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">
+                                <!-- PAGE CONTENT : begin -->
+                                <div id="page-content">
+                                    {% for obj in object_list %}
+                                    <!-- BLOG LIST : begin -->
+                                    <div class="blog-list">
+                                        <!-- IMAGE ARTICLE : begin -->
+                                        <article class="image">
+                                            <div class="article-inner">
+                                                <!-- ARTICLE IMAGE : begin -->
+                                                <div class="article-image">
+                                                    <a href="/posts/{{ obj.id }}"><img src="/static/vendor/images/article_image.jpg" alt=""></a>
+                                                </div>
+                                                <!-- ARTICLE IMAGE : end -->
+
+                                                <!-- ARTICLE HEADER : begin -->
+                                                <header class="article-header">
+                                                    <span class="article-date">{{ obj.timestamp|date:"F d, Y" }}</span>
+                                                    
+                                                    <h2 class="article-title"><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></h2>
+                                                </header>
+                                                <!-- ARTICLE HEADER : end -->
+
+                                                <!-- ARTICLE CONTENT : begin -->
+                                                <div class="article-content various-content">
+                                                    <p class="lead">Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                                    <p align="justify">{{ obj.content }}</p>
+                                                </div>
+                                                <!-- ARTICLE CONTENT : end -->
+
+                                                <!-- ARTICLE FOOTER : begin -->
+                                                <footer class="article-footer">
+                                                    <ul class="article-info">
+                                                        <li class="author">N.Mars</li>
+                                                        <li class="categories">
+                                                            <a href="#">Space</a>,
+                                                            <a href="#">Stars</a>,
+                                                            <a href="#">Travel</a>
+                                                        </li>
+                                                        <li class="comments"><a href="#">4 comments</a></li>
+                                                    </ul>
+                                                    <p class="article-more">
+                                                        <a href="blog-post-image.html" class="c-button m-outline">Read More</a>
+                                                    </p>
+                                                </footer>
+                                                <!-- ARTICLE FOOTER : end -->
+                                            </div>
+                                        </article>
+                                        <!-- IMAGE ARTICLE : end -->
+                                    </div>
+                                <!-- BLOG LIST : end -->
+                                {% endfor %}
+
+                                <!-- PAGINATION : begin -->
+                                <div class="c-pagination">
+                                    <ul>
+                                        <li class="pagination-prev">
+                                            <a href="#" class="c-button m-outline">
+                                                <i class="fa fa-chevron-left"></i>
+                                            </a>
+                                        </li>
+                                        <li class="m-active"><a href="#" class="c-button m-outline">1</a></li>
+                                        <li><a href="#" class="c-button m-outline">2</a></li>
+                                        <li><a href="#" class="c-button m-outline">3</a></li>
+                                        <li class="pagination-next">
+                                            <a href="#" class="c-button m-outline">
+                                                <i class="fa fa-chevron-right"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- PAGINATION : end -->
+                            </div>
+                            <!-- PAGE CONTENT : end -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- PAGE SIDEBAR : begin -->
+                            <aside id="page-sidebar">
+                                <!-- SIDEBAR SEARCH : begin -->
+                                <div class="widget search-widget">
+                                    <h3 class="widget-title">Search</h3>
+                                    <div class="widget-content">
+                                        <form class="c-search-form" action="search-results.html">
+                                            <div class="form-fields">
+                                                <input type="text" data-placeholder="What to search...">
+                                                <button class="c-button" type="submit"><i class="fa fa-search"></i></button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            <!-- SIDEBAR SEARCH : end -->
+
+                            <!-- SIDEBAR LINKS : begin -->
+                            <div class="widget links-widget">
+                                <h3 class="widget-title">Categories</h3>
+                                <div class="widget-content">
+                                    <ul>
+                                        <li><a href="#">Java</a> <span>(12 posts)</span></li>
+                                        <li><a href="#">C/C++</a> <span>(8 posts)</span></li>
+                                        <li><a href="#">Python</a> <span>(24 posts)</span></li>
+                                        <li><a href="#">Ruby</a> <span>(6 posts)</span></li>
+                                        <li><a href="#">JavaScript</a> <span>(4 posts)</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <!-- SIDEBAR LINKS : end -->
+
+                <!-- BLOG WIDGET : begin -->
+                <div class="widget blog-widget">
+                  <h3 class="widget-title">Latest Posts</h3>
+                  <div class="widget-content">
+
+                    <ul>
+                      <li>
+                        <h4><a href="#">The Big Oxmox advised her</a></h4>
+                        <p class="date">August 24, 2014</p>
+                      </li>
+                      <li>
+                        <h4><a href="#">A small river named Duden</a></h4>
+                        <p class="date">August 23, 2014</p>
+                      </li>
+                      <li>
+                        <h4><a href="#">One day however a small line</a></h4>
+                        <p class="date">August 22, 2014</p>
+                      </li>
+                    </ul>
+
+                  </div>
+                </div>
+                <!-- BLOG WIDGET : end -->
+
+                <!-- SIDEBAR TAGS : begin -->
+                <div class="widget tags-widget">
+                  <h3 class="widget-title">Popular Tags</h3>
+                  <div class="widget-content">
+                    <ul>
+                      <li><a href="#">Audio</a></li>
+                      <li><a href="#">About</a></li>
+                      <li><a href="#">Photo</a></li>
+                      <li><a href="#">Portrait</a></li>
+                      <li><a href="#">Space</a></li>
+                      <li><a href="#">Stars</a></li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- SIDEBAR TAGS : end -->
+
+              </aside>
+              <!-- PAGE SIDEBAR : end -->
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- CORE : end -->
+
+      <!-- BOTTOM PANEL : begin -->
+      <div id="bottom-panel">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+
+              <!-- TEXT WIDGET : begin -->
+              <div class="widget text-widget">
+                <h3 class="widget-title">About Vibes</h3>
+                <div class="widget-content">
+
+                  <div class="various-content">
+                    <p><strong>VIBES</strong> is an ideal template for creative folks or design agencies. <strong>Clean code and top-notch web design techniques</strong> are wrapped with several gorgeous color schemes.</p>
+                    <p>You can buy this responsive HTML5/CSS3 template on <a href="http://themeforest.net/user/LSVRthemes/portfolio?ref=LSVRthemes">ThemeForest</a>.</p>
+                  </div>
+
+                </div>
+              </div>
+              <!-- TEXT WIDGET : end -->
+
+            </div>
+            <div class="col-md-4">
+
+              <!-- BLOG WIDGET : begin -->
+              <div class="widget blog-widget">
+                <h3 class="widget-title">Latest Posts</h3>
+                <div class="widget-content">
+
+                  <ul>
+                    <li>
+                      <h4><a href="#">The Big Oxmox advised her</a></h4>
+                      <p class="date">August 24, 2014</p>
+                    </li>
+                    <li>
+                      <h4><a href="#">A small river named Duden</a></h4>
+                      <p class="date">August 23, 2014</p>
+                    </li>
+                    <li>
+                      <h4><a href="#">One day however a small line</a></h4>
+                      <p class="date">August 22, 2014</p>
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+              <!-- BLOG WIDGET : end -->
+
+            </div>
+            <div class="col-md-4">
+
+              <!-- SUBSCRIBE WIDGET : begin -->
+              <div class="widget subscribe-widget">
+                <h3 class="widget-title">Newsletter</h3>
+                <div class="widget-content">
+
+                  <p><strong>VIBES</strong> contains fully working <strong>MailChimp</strong> subscribe form.</p>
+
+                  <form class="subscribe-widget-form" action="http://volovar.us8.list-manage.com/subscribe/post-json?u=76a50c9454ec8ab78914d1bf2&amp;id=49e892f53d&amp;c=?" method="get">
+
+                    <!-- VALIDATION ERROR MESSAGE : begin -->
+                    <p style="display: none;" class="c-alert-message m-warning m-validation-error"><i class="ico fa fa-exclamation-circle"></i>Email address is required.</p>
+                    <!-- VALIDATION ERROR MESSAGE : end -->
+
+                    <!-- SENDING REQUEST ERROR MESSAGE : begin -->
+                    <p style="display: none;" class="c-alert-message m-warning m-request-error"><i class="ico fa fa-exclamation-circle"></i>There was a connection problem. Try again later.</p>
+                    <!-- SENDING REQUEST ERROR MESSAGE : end -->
+
+                    <!-- SUCCESS MESSAGE : begin -->
+                    <p style="display: none;" class="c-alert-message m-success"><i class="ico fa fa-check-circle"></i><strong>Sent successfully.</strong></p>
+                    <!-- SUCCESS MESSAGE : end -->
+
+                    <div class="form-fields">
+                      <input class="m-required m-email" name="EMAIL" type="text" data-placeholder="Your email address" title="Your email address">
+                      <button class="c-button m-outline submit-btn" type="submit" data-label="Subscribe" data-loading-label="Sending...">Subscribe</button>
+                    </div>
+
+                  </form>
+
+                </div>
+              </div>
+              <!-- SUBSCRIBE WIDGET : end -->
+
+            </div>
+          </div>
+        </div>
+
+        <!-- BACK TO TOP : begin -->
+        <a href="#header" id="back-to-top" title="Back to top"><i class="fa fa-chevron-up"></i></a>
+        <!-- BACK TO TOP : end -->
+
+      </div>
+      <!-- BOTTOM PANEL : end -->
+
+    </div>
+    <!-- WRAPPER : end -->
+
+    <!-- FOOTER : begin -->
+    <div id="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-md-push-6">
+
+            <!-- FOOTER MENU : begin -->
+            <nav class="footer-menu">
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="elements.html">Elements</a></li>
+                <li><a href="http://demos.volovar.net/vibes.html/documentation/">Documentation</a></li>
+              </ul>
+            </nav>
+            <!-- FOOTER MENU : end -->
+
+          </div>
+          <div class="col-md-6 col-md-pull-6">
+
+            <!-- FOOTER TEXT : begin -->
+            <div class="footer-text">
+              <p>Buy this template on <a href="http://themeforest.net/user/LSVRthemes/portfolio?ref=LSVRthemes">ThemeForest.net</a></p>
+            </div>
+            <!-- FOOTER TEXT : end -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FOOTER : end -->
+
+  </div>
+  <!-- BODY : end -->
+
+  <!-- MAIN SIDEBAR : begin -->
+  <div id="main-sidebar">
+    <div class="main-sidebar-inner">
+
+      <!-- SIDEBAR CLOSE : begin -->
+      <button class="sidebar-close" type="button"><i class="fa fa-times"></i></button>
+      <!-- SIDEBAR CLOSE : end -->
+
+      <!-- SIDEBAR SEARCH : begin -->
+      <form class="sidebar-search" action="index.html">
+        <input type="text" data-placeholder="Search for...">
+        <button type="submit"><i class="fa fa-search"></i></button>
+      </form>
+      <!-- SIDEBAR SEARCH : end -->
+
+      <!-- SIDEBAR MENU : begin -->
+      <nav class="sidebar-menu m-header-menu-copy">
+        <hr class="sidebar-divider">
+      </nav>
+      <!-- SIDEBAR MENU : end -->
+
+      <!-- SIDEBAR SOCIAL : begin -->
+      <ul class="sidebar-social">
+        <li><a href="https://twitter.com/LSVRthemes"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+        <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+      </ul>
+      <!-- SIDEBAR SOCIAL : end -->
+
+      <hr class="sidebar-divider">
+
+      <!-- SIDEBAR WIDGETS : begin -->
+      <div class="sidebar-widgets">
+
+        <!-- TWITTER WIDGET : begin -->
+        <div class="widget twitter-widget m-paginated" data-id="LSVRthemes" data-limit="3" data-interval="20000">
+          <h3 class="widget-title"><a href="https://twitter.com/LSVRthemes">@LSVRthemes</a></h3>
+          <div class="widget-content">
+
+            <div class="twitter-feed">
+              <span class="c-loading-anim"><span></span></span>
+            </div>
+
+          </div>
+        </div>
+        <!-- TWITTER WIDGET : end -->
+
+        <!-- TEXT WIDGET : begin -->
+        <div class="widget text-widget">
+          <div class="widget-content">
+
+            <div class="various-content">
+              <p>This portfolio HTML template can be purchased on <a href="http://themeforest.net/user/LSVRthemes/portfolio?ref=LSVRthemes">ThemeForest.net</a>.</p>
+            </div>
+
+          </div>
+        </div>
+        <!-- TEXT WIDGET : end -->
+
+      </div>
+      <!-- SIDEBAR WIDGETS : end -->
+
+    </div>
+  </div>
+  <!-- MAIN SIDEBAR : end -->
+
+		{% include "layout/js.html" %}
+
+	</body>
+</html>
